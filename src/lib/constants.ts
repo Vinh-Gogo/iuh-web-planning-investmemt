@@ -11,6 +11,7 @@ export const NAV_LINKS: NavLink[] = [
     href: '/gioi-thieu',
     sublinks: [
       { href: '/gioi-thieu/chuc-nang-nhiem-vu', label: 'Chức năng - Nhiệm vụ' },
+      { href: '/gioi-thieu/lich-su', label: 'Lịch sử phát triển' },
       { 
         href: '/gioi-thieu/co-cau-to-chuc', 
         label: 'Cơ cấu tổ chức',
