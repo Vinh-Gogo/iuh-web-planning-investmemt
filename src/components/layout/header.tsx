@@ -2,8 +2,7 @@
 
 import * as React from 'react';
 import Link from 'next/link';
-import Image from 'next/image';
-import { Menu, ChevronDown, Languages, Globe } from 'lucide-react';
+import { Menu, ChevronDown } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import {
   DropdownMenu,
@@ -12,7 +11,6 @@ import {
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
-import { cn } from '@/lib/utils';
 import { NAV_LINKS } from '@/lib/constants';
 import SearchWithAutocomplete from '@/components/layout/search-with-autocomplete';
 
@@ -64,7 +62,7 @@ const MobileNavigation = () => {
           <span className="sr-only">Open navigation menu</span>
         </Button>
       </SheetTrigger>
-      <SheetContent side="left" className="bg-white p-0">
+      <SheetContent side="left" className="bg-white p-0 w-[300px]">
         <div className="p-4 border-b">
           <Link href="/" className="flex items-center gap-2">
             <IuhLogo />
@@ -97,27 +95,29 @@ const MobileNavigation = () => {
 };
 
 const LanguageSwitcher = () => {
-  return (
-    <DropdownMenu>
-      <DropdownMenuTrigger asChild>
-        <Button variant="ghost" size="icon" className="text-white hover:text-white/80">
-          <Globe className="h-5 w-5" />
-          <span className="sr-only">Change language</span>
-        </Button>
-      </DropdownMenuTrigger>
-      <DropdownMenuContent align="end" className="bg-white">
-        <DropdownMenuItem className="hover:!bg-background">
-          <span className="mr-2">🇻🇳</span>
-          <span>Tiếng Việt</span>
-        </DropdownMenuItem>
-        <DropdownMenuItem className="hover:!bg-background">
-          <span className="mr-2">🇬🇧</span>
-          <span>English</span>
-        </DropdownMenuItem>
-      </DropdownMenuContent>
-    </DropdownMenu>
-  );
-};
+    const [currentLang, setCurrentLang] = React.useState<'vi' | 'en'>('vi');
+  
+    return (
+      <DropdownMenu>
+        <DropdownMenuTrigger asChild>
+          <Button variant="ghost" className="text-white hover:text-white/80 px-2 flex items-center gap-1">
+            <span className="text-lg">{currentLang === 'vi' ? '🇻🇳' : '🇬🇧'}</span>
+            <ChevronDown className="h-4 w-4 opacity-70" />
+          </Button>
+        </DropdownMenuTrigger>
+        <DropdownMenuContent align="end" className="bg-white min-w-[150px]">
+          <DropdownMenuItem onClick={() => setCurrentLang('vi')} className="hover:!bg-background cursor-pointer">
+            <span className="mr-2 text-lg">🇻🇳</span>
+            <span className="font-headline">Tiếng Việt</span>
+          </DropdownMenuItem>
+          <DropdownMenuItem onClick={() => setCurrentLang('en')} className="hover:!bg-background cursor-pointer">
+            <span className="mr-2 text-lg">🇬🇧</span>
+            <span className="font-headline">English</span>
+          </DropdownMenuItem>
+        </DropdownMenuContent>
+      </DropdownMenu>
+    );
+  };
 
 
 export default function Header() {
@@ -136,7 +136,7 @@ export default function Header() {
             </Link>
           </div>
           
-          <div className="flex-1 flex justify-center">
+          <div className="flex-1 flex justify-center px-4">
             <div className="bg-gradient-to-r from-primary via-accent/50 to-primary p-1 rounded-full shadow-inner hidden lg:block">
               <div className="bg-primary/50 rounded-full">
                 <NavigationMenu />
@@ -144,7 +144,7 @@ export default function Header() {
             </div>
           </div>
           
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-1">
             <SearchWithAutocomplete />
             <LanguageSwitcher />
           </div>
