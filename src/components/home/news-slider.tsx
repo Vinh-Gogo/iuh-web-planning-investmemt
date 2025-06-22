@@ -75,7 +75,7 @@ export default function NewsSlider() {
               <div className="p-1">
                 <Card className="overflow-hidden group hover:shadow-xl transition-shadow duration-300">
                   <CardContent className="flex flex-col h-full p-0">
-                    <div className="relative h-48 w-full">
+                    <div className="relative h-40 md:h-48 w-full">
                        <Image
                         src={item.image}
                         alt={item.title}
@@ -88,7 +88,7 @@ export default function NewsSlider() {
                     </div>
                     <div className="p-4 flex flex-col flex-grow">
                       <Badge variant="secondary" className="w-fit mb-2 bg-accent/20 text-accent">{item.category}</Badge>
-                      <h3 className="font-headline font-semibold text-lg text-primary flex-grow">
+                      <h3 className="font-headline font-semibold text-base md:text-lg text-primary flex-grow">
                         <Link href={item.link} className="hover:underline">{item.title}</Link>
                       </h3>
                       <p className="text-sm text-muted-foreground mt-2">{item.date}</p>

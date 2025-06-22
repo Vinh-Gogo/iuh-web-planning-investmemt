@@ -54,11 +54,11 @@ export default function NhanSuPage() {
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
               {staff.map((member) => (
                 <Card key={member.email} className="text-center p-4 hover:shadow-md transition-shadow">
-                  <Avatar className="mx-auto h-24 w-24 mb-4">
+                  <Avatar className="mx-auto h-20 w-20 sm:h-24 sm:w-24 mb-4">
                     <AvatarImage src={member.avatar} alt={member.name} data-ai-hint="person portrait" />
                     <AvatarFallback>{member.initials}</AvatarFallback>
                   </Avatar>
-                  <h3 className="font-headline font-bold text-lg text-primary">{member.name}</h3>
+                  <h3 className="font-headline font-bold text-base sm:text-lg text-primary">{member.name}</h3>
                   <p className="text-accent font-medium">{member.role}</p>
                   <p className="text-sm text-muted-foreground mt-2">{member.email}</p>
                 </Card>
