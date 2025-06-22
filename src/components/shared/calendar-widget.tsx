@@ -6,16 +6,17 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 
 export default function CalendarWidget() {
-  const [date, setDate] = React.useState<Date | undefined>(new Date());
+  const [date, setDate] = React.useState<Date | undefined>(undefined);
+
+  React.useEffect(() => {
+    setDate(new Date());
+  }, []);
 
   const events: Record<string, string> = {
     '2024-07-25': 'Họp giao ban tháng 7',
     '2024-08-01': 'Bắt đầu triển khai dự án mới',
     '2024-08-05': 'Tập huấn PCCC',
   };
-
-  const today = new Date();
-  today.setHours(0,0,0,0);
 
   const EventBadge = ({ day }: { day: Date }) => {
     const dateString = day.toISOString().split('T')[0];
@@ -57,9 +58,9 @@ export default function CalendarWidget() {
         />
         <div className="p-4 border-t">
           <h4 className="font-headline font-semibold text-primary mb-2">Sự kiện đã chọn:</h4>
-          {selectedEvent ? (
+          {selectedEvent && date ? (
              <div className="bg-background p-3 rounded-md">
-                <p className="font-bold text-accent">{new Date(selectedDay).toLocaleDateString('vi-VN')}</p>
+                <p className="font-bold text-accent">{date.toLocaleDateString('vi-VN')}</p>
                 <p className="text-sm text-foreground">{selectedEvent}</p>
              </div>
           ) : (
