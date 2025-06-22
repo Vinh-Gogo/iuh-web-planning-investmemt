@@ -1,23 +1,5 @@
 # Website Phòng Kế hoạch – Đầu tư – Trường Đại học Công nghiệp TP.HCM
 
-## 1. Giới thiệu tổng quan về Website
-
-Website này được xây dựng nhằm cung cấp một cổng thông tin chính thức cho Phòng Kế hoạch – Đầu tư của Trường Đại học Công nghiệp TP.HCM (IUH). Mục tiêu chính là tạo điều kiện thuận lợi cho việc đăng tải và tra cứu các văn bản, kế hoạch, dự án, thông báo, quyết định, và biểu mẫu liên quan đến hoạt động của Phòng.
-
-Website được thiết kế với hai khu vực chính:
-* **Khu vực công khai:** Cho phép người dùng truy cập các thông tin như:
-    * Trang chủ với banner giới thiệu nhiệm vụ và slider tin tức nổi bật.
-    * Giới thiệu về Phòng (Giới thiệu chung, Chức năng – Nhiệm vụ, Lịch sử & Thành tích).
-    * Cơ cấu Tổ chức nhân sự (Lãnh đạo, chuyên viên, thông tin liên hệ).
-    * Tin tức – Thông báo được phân loại rõ ràng (Tin hoạt động, Thông báo mời chào giá, Tin tức cập nhật từ các trang báo, Lịch công tác).
-    * Các Dự án – Kế hoạch (đang triển khai, đã hoàn thành, danh mục mua sắm thiết bị).
-    * Thư viện Văn bản – Biểu mẫu với bộ lọc thông minh (loại, cơ quan ban hành, năm) và khả năng tải xuống nhiều định dạng (PDF, DOCX).
-    * Phần Hỏi – Đáp (FAQ) và form gửi câu hỏi.
-    * Trang Liên hệ với thông tin liên lạc và khả năng chat qua Fanpage.
-* **Khu vực nội bộ:** Dành cho cán bộ phòng, với hệ thống quản lý nội dung (CMS) hỗ trợ soạn thảo WYSIWYG, quản lý phiên bản, lên lịch xuất bản, quy trình duyệt bài (soạn giả -> trưởng phòng), thư viện số và nhật ký kiểm tra (audit log).
-
-Website được tối ưu hóa để hiển thị tốt trên nhiều thiết bị (máy tính, di động) và hỗ trợ song ngữ Việt – Anh với khả năng chuyển đổi nhanh chóng.
-
 ## 2. Công nghệ sử dụng
 
 Dự án này được xây dựng dựa trên các công nghệ và nền tảng sau:
