@@ -23,11 +23,11 @@ export default function ContactPage() {
               Chúng tôi luôn sẵn sàng lắng nghe và giải đáp mọi thắc mắc của bạn.
             </p>
           </div>
-          <div className="grid grid-cols-1 lg:grid-cols-5 gap-12">
+          <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 lg:gap-12">
             <div className="lg:col-span-2">
                 <Card className="shadow-lg h-full">
                     <CardHeader>
-                        <CardTitle className="font-headline text-2xl text-primary">Thông tin liên hệ</CardTitle>
+                        <CardTitle className="font-headline text-xl md:text-2xl text-primary">Thông tin liên hệ</CardTitle>
                     </CardHeader>
                     <CardContent className="space-y-6">
                         <div className="flex items-start gap-4">
@@ -59,7 +59,7 @@ export default function ContactPage() {
             <div className="lg:col-span-3 space-y-8">
               <Card className="shadow-lg">
                 <CardHeader>
-                  <CardTitle className="font-headline text-2xl text-primary flex items-center gap-2">
+                  <CardTitle className="font-headline text-xl md:text-2xl text-primary flex items-center gap-2">
                       <Map className="h-6 w-6" />
                       Bản đồ
                   </CardTitle>
@@ -80,7 +80,7 @@ export default function ContactPage() {
 
               <Card className="shadow-lg">
                 <CardHeader>
-                  <CardTitle className="font-headline text-2xl text-primary uppercase">Liên hệ qua chat trên Fanpage</CardTitle>
+                  <CardTitle className="font-headline text-xl md:text-2xl text-primary uppercase">Liên hệ qua chat trên Fanpage</CardTitle>
                 </CardHeader>
                 <CardContent>
                     <div className="border rounded-lg overflow-hidden bg-white">
