@@ -28,7 +28,7 @@ const IuhLogo = () => (
 
 const NavigationMenu = () => {
   return (
-    <nav className="hidden lg:flex items-center space-x-1">
+    <nav className="hidden md:flex items-center space-x-1">
       {NAV_LINKS.map((link) =>
         link.sublinks ? (
           <DropdownMenu key={link.label}>
@@ -106,7 +106,7 @@ const MobileNavigation = () => {
     return (
         <Sheet>
         <SheetTrigger asChild>
-            <Button variant="ghost" size="icon" className="lg:hidden text-white hover:text-white/80">
+            <Button variant="ghost" size="icon" className="md:hidden text-white hover:text-white/80">
             <Menu className="h-6 w-6" />
             <span className="sr-only">Open navigation menu</span>
             </Button>
@@ -134,7 +134,7 @@ export default function Header() {
         <div className="flex h-20 items-center">
           <div className="flex items-center">
             <MobileNavigation />
-            <Link href="/" className="flex items-center gap-3 ml-2 lg:ml-0">
+            <Link href="/" className="flex items-center gap-3 ml-2 md:ml-0">
               <IuhLogo />
               <div className="hidden md:flex flex-col text-white font-headline">
                 <span className="text-sm font-bold leading-tight">IUH</span>
@@ -144,7 +144,7 @@ export default function Header() {
           </div>
           
           <div className="flex-1 flex justify-center px-4">
-            <div className="bg-gradient-to-r from-primary via-accent/50 to-primary p-1 rounded-full shadow-inner hidden lg:block">
+            <div className="bg-gradient-to-r from-primary via-accent/50 to-primary p-1 rounded-full shadow-inner hidden md:block">
               <div className="bg-primary/50 rounded-full">
                 <NavigationMenu />
               </div>
