@@ -38,7 +38,7 @@ export const NAV_LINKS: NavLink[] = [
 
 export const SOCIAL_LINKS = {
   facebook: 'https://www.facebook.com/khtdtiuh',
-  zalo: 'https://zalo.me/your_zalo_id', // Replace with actual Zalo link
+  zalo: 'https://zalo.me/0985189541',
 };
 
 export const CONTACT_INFO = {

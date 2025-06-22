@@ -4,6 +4,7 @@ import Image from 'next/image';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { MapPin, Phone, Facebook, MessageSquare, ThumbsUp, Map } from 'lucide-react';
+import { SOCIAL_LINKS } from '@/lib/constants';
 
 const ZaloIcon = () => (
   <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="white">
@@ -108,11 +109,15 @@ export default function ContactPage() {
                             <h3 className="text-xl font-bold text-gray-900 font-sans">Phòng Tài chính Kế toán-IUH</h3>
                             <p className="text-sm text-gray-500">25,123 people like this</p>
                             <div className="flex gap-2 mt-4">
-                                <Button className="bg-blue-600 hover:bg-blue-700 text-white flex-1">
+                                <Button asChild className="bg-blue-600 hover:bg-blue-700 text-white flex-1">
+                                  <Link href="https://www.facebook.com/ptckt.iuh" target="_blank" rel="noopener noreferrer">
                                     <ThumbsUp className="mr-2 h-4 w-4" /> Thích Trang
+                                  </Link>
                                 </Button>
-                                <Button variant="secondary" className="flex-1">
+                                <Button asChild variant="secondary" className="flex-1">
+                                  <Link href="https://m.me/ptckt.iuh" target="_blank" rel="noopener noreferrer">
                                     <MessageSquare className="mr-2 h-4 w-4" /> Gửi tin nhắn
+                                  </Link>
                                 </Button>
                             </div>
                         </div>
@@ -123,7 +128,7 @@ export default function ContactPage() {
           </div>
         </div>
       </div>
-      <Link href="https://zalo.me/your_zalo_id" target="_blank" rel="noopener noreferrer" aria-label="Chat on Zalo" className="fixed bottom-8 right-8 z-50 bg-blue-500 rounded-full p-3 shadow-lg hover:bg-blue-600 transition-transform hover:scale-110">
+      <Link href={SOCIAL_LINKS.zalo} target="_blank" rel="noopener noreferrer" aria-label="Chat on Zalo" className="fixed bottom-8 right-8 z-50 bg-blue-500 rounded-full p-3 shadow-lg hover:bg-blue-600 transition-transform hover:scale-110">
         <ZaloIcon />
       </Link>
     </>
