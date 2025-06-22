@@ -4,12 +4,15 @@ import * as React from 'react';
 import { Calendar } from '@/components/ui/calendar';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
+import { Skeleton } from '@/components/ui/skeleton';
 
 export default function CalendarWidget() {
   const [date, setDate] = React.useState<Date | undefined>(undefined);
+  const [isClient, setIsClient] = React.useState(false);
 
   React.useEffect(() => {
     setDate(new Date());
+    setIsClient(true);
   }, []);
 
   const events: Record<string, string> = {
@@ -36,29 +39,35 @@ export default function CalendarWidget() {
         <CardTitle className="font-headline text-xl">Lịch công tác</CardTitle>
       </CardHeader>
       <CardContent className="p-0">
-        <Calendar
-          mode="single"
-          selected={date}
-          onSelect={setDate}
-          className="p-3"
-          components={{
-            DayContent: (props) => (
-              <div className="relative">
-                {props.date.getDate()}
-                <EventBadge day={props.date} />
-              </div>
-            )
-          }}
-          modifiers={{
-            event: (day) => Object.keys(events).includes(day.toISOString().split('T')[0]),
-          }}
-          modifiersStyles={{
-             event: { fontWeight: 'bold' }
-          }}
-        />
+        {isClient ? (
+            <Calendar
+              mode="single"
+              selected={date}
+              onSelect={setDate}
+              className="p-3"
+              components={{
+                DayContent: (props) => (
+                  <div className="relative">
+                    {props.date.getDate()}
+                    <EventBadge day={props.date} />
+                  </div>
+                )
+              }}
+              modifiers={{
+                event: (day) => Object.keys(events).includes(day.toISOString().split('T')[0]),
+              }}
+              modifiersStyles={{
+                event: { fontWeight: 'bold' }
+              }}
+            />
+        ) : (
+            <div className="p-3">
+                <Skeleton className="h-[298px] w-full" />
+            </div>
+        )}
         <div className="p-4 border-t">
           <h4 className="font-headline font-semibold text-primary mb-2">Sự kiện đã chọn:</h4>
-          {selectedEvent && date ? (
+          {isClient && selectedEvent && date ? (
              <div className="bg-background p-3 rounded-md">
                 <p className="font-bold text-accent">{date.toLocaleDateString('vi-VN')}</p>
                 <p className="text-sm text-foreground">{selectedEvent}</p>
