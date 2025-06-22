@@ -1,14 +1,29 @@
-export const NAV_LINKS = [
+type NavLink = {
+  href?: string;
+  label: string;
+  sublinks?: NavLink[];
+};
+
+export const NAV_LINKS: NavLink[] = [
   { href: '/', label: 'Trang chủ' },
   { 
-    label: 'Giới thiệu', 
+    label: 'Giới thiệu',
+    href: '/gioi-thieu',
     sublinks: [
       { href: '/gioi-thieu/chuc-nang-nhiem-vu', label: 'Chức năng - Nhiệm vụ' },
-      { href: '/gioi-thieu/co-cau-to-chuc', label: 'Cơ cấu tổ chức' },
+      { 
+        href: '/gioi-thieu/co-cau-to-chuc', 
+        label: 'Cơ cấu tổ chức',
+        sublinks: [
+            { href: '/gioi-thieu/co-cau-to-chuc/so-do', label: 'Sơ đồ tổ chức' },
+            { href: '/gioi-thieu/co-cau-to-chuc/nhan-su', label: 'Nhân sự' },
+        ]
+      },
     ]
   },
   { 
     label: 'Tin tức – Thông báo',
+    href: '/tin-tuc',
     sublinks: [
       { href: '/tin-tuc', label: 'Tin tức' },
       { href: '/thong-bao', label: 'Thông báo' },
