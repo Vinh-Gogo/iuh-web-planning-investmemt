@@ -1,7 +1,8 @@
+
 'use client';
 
 import { useState } from 'react';
-import { Download, FileDown, FileText, Filter } from 'lucide-react';
+import { Download, FileText, Filter } from 'lucide-react';
 
 import {
   Table,
@@ -21,14 +22,13 @@ import {
 import {
     Pagination,
     PaginationContent,
-    PaginationEllipsis,
     PaginationItem,
     PaginationLink,
     PaginationNext,
     PaginationPrevious,
 } from '@/components/ui/pagination';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Card, CardContent, CardHeader, CardTitle, CardFooter } from '@/components/ui/card';
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -93,14 +93,55 @@ export default function DocumentLibrary() {
         </div>
       </CardHeader>
       <CardContent>
-        <div className="border rounded-md">
+        {/* Mobile View: Card Layout */}
+        <div className="grid grid-cols-1 gap-4 md:hidden">
+            {currentDocuments.map((doc) => (
+                 <Card key={doc.id} className="flex flex-col bg-white/50">
+                    <CardHeader className="pb-2">
+                        <CardTitle className="text-base text-primary">{doc.title}</CardTitle>
+                    </CardHeader>
+                    <CardContent className="text-sm space-y-1 pb-4 flex-grow">
+                        <p className="text-muted-foreground"><strong className="font-medium text-foreground">Loại:</strong> {doc.type}</p>
+                        <p className="text-muted-foreground"><strong className="font-medium text-foreground">Cơ quan:</strong> {doc.issuingAuthority}</p>
+                        <p className="text-muted-foreground"><strong className="font-medium text-foreground">Năm:</strong> {doc.year}</p>
+                    </CardContent>
+                    <CardFooter>
+                        <DropdownMenu>
+                            <DropdownMenuTrigger asChild>
+                                <Button variant="outline" size="sm" className="w-full">
+                                    <Download className="h-4 w-4 mr-2" />
+                                    Tải xuống
+                                </Button>
+                            </DropdownMenuTrigger>
+                            <DropdownMenuContent align="end" className="w-[calc(100vw-5rem)]">
+                                <DropdownMenuItem>
+                                    <a href={doc.fileUrlPdf} download className="flex items-center w-full">
+                                        <FileText className="h-4 w-4 mr-2 text-red-500" />
+                                        PDF
+                                    </a>
+                                </DropdownMenuItem>
+                                <DropdownMenuItem>
+                                    <a href={doc.fileUrlDocx} download className="flex items-center w-full">
+                                        <FileText className="h-4 w-4 mr-2 text-blue-500" />
+                                        DOCX
+                                    </a>
+                                </DropdownMenuItem>
+                            </DropdownMenuContent>
+                        </DropdownMenu>
+                    </CardFooter>
+                 </Card>
+            ))}
+        </div>
+
+        {/* Desktop View: Table Layout */}
+        <div className="hidden md:block border rounded-md">
             <Table>
             <TableHeader>
                 <TableRow>
                 <TableHead className="font-headline">Tên văn bản</TableHead>
-                <TableHead className="font-headline hidden md:table-cell">Loại</TableHead>
-                <TableHead className="font-headline hidden md:table-cell">Cơ quan ban hành</TableHead>
-                <TableHead className="font-headline hidden sm:table-cell">Năm</TableHead>
+                <TableHead className="font-headline">Loại</TableHead>
+                <TableHead className="font-headline">Cơ quan ban hành</TableHead>
+                <TableHead className="font-headline">Năm</TableHead>
                 <TableHead className="text-right font-headline">Tải về</TableHead>
                 </TableRow>
             </TableHeader>
@@ -108,9 +149,9 @@ export default function DocumentLibrary() {
                 {currentDocuments.map((doc) => (
                 <TableRow key={doc.id}>
                     <TableCell className="font-medium text-primary">{doc.title}</TableCell>
-                    <TableCell className="hidden md:table-cell">{doc.type}</TableCell>
-                    <TableCell className="hidden md:table-cell">{doc.issuingAuthority}</TableCell>
-                    <TableCell className="hidden sm:table-cell">{doc.year}</TableCell>
+                    <TableCell>{doc.type}</TableCell>
+                    <TableCell>{doc.issuingAuthority}</TableCell>
+                    <TableCell>{doc.year}</TableCell>
                     <TableCell className="text-right">
                     <DropdownMenu>
                         <DropdownMenuTrigger asChild>
