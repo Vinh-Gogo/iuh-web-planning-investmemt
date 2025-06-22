@@ -133,4 +133,5 @@ Sau khi tất cả các bước trên đã hoàn tất, bạn đã sẵn sàng �
 Bây giờ bạn sẽ thấy website Phòng Kế hoạch – Đầu tư của mình chạy cục bộ trên máy tính! Bạn có thể chỉnh sửa mã nguồn và thấy các thay đổi được cập nhật tự động trong trình duyệt.
 
 ---
-Đây là một `README.md` đầy đủ và dễ hiểu hơn, giúp bất kỳ ai (kể cả bạn sau này) có thể dễ dàng thiết lập và chạy dự án.
+
+![image](https://github.com/user-attachments/assets/00495eca-0661-4ff0-aa2d-609b80d69403)
