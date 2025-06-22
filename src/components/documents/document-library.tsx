@@ -114,9 +114,9 @@ export default function DocumentLibrary() {
                     <TableCell className="text-right">
                     <DropdownMenu>
                         <DropdownMenuTrigger asChild>
-                            <Button variant="outline" size="sm">
-                                <Download className="h-4 w-4 mr-2" />
-                                Tải xuống
+                            <Button variant="outline" size="sm" className="w-9 p-0 sm:w-auto sm:px-3 sm:gap-2">
+                                <Download className="h-4 w-4" />
+                                <span className="hidden sm:inline">Tải xuống</span>
                             </Button>
                         </DropdownMenuTrigger>
                         <DropdownMenuContent align="end">

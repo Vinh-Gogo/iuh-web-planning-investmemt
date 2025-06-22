@@ -25,7 +25,7 @@ export default function SoDoToChucPage() {
               alt="Sơ đồ tổ chức phòng Kế hoạch - Đầu tư"
               width={800}
               height={600}
-              className="rounded-md"
+              className="rounded-md max-w-full h-auto"
               data-ai-hint="organization chart"
             />
           </CardContent>
