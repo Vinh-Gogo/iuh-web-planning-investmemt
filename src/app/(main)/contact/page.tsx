@@ -3,7 +3,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { MapPin, Phone, Facebook, MessageSquare, ThumbsUp } from 'lucide-react';
+import { MapPin, Phone, Facebook, MessageSquare, ThumbsUp, Map } from 'lucide-react';
 
 const ZaloIcon = () => (
   <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="white">
@@ -56,7 +56,28 @@ export default function ContactPage() {
                     </CardContent>
                 </Card>
             </div>
-            <div className="lg:col-span-3">
+            <div className="lg:col-span-3 space-y-8">
+              <Card className="shadow-lg">
+                <CardHeader>
+                  <CardTitle className="font-headline text-2xl text-primary flex items-center gap-2">
+                      <Map className="h-6 w-6" />
+                      Bản đồ
+                  </CardTitle>
+                </CardHeader>
+                <CardContent>
+                    <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3918.858414424391!2d106.68913367579624!3d10.822205858607137!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x317528e541434523%3A0x20f2a700a752e259!2zVHLGsOG7nW5nIMSQ4bqhaSBo4buNYyBDw7RuZyBuZ2hp4buHcCBUUC5IQ00!5e0!3m2!1svi!2s!4v1716386470123!5m2!1svi!2s"
+                        width="100%"
+                        height="350"
+                        style={{ border: 0 }}
+                        allowFullScreen={true}
+                        loading="lazy"
+                        referrerPolicy="no-referrer-when-downgrade"
+                        className="rounded-md w-full">
+                    </iframe>
+                </CardContent>
+              </Card>
+
               <Card className="shadow-lg">
                 <CardHeader>
                   <CardTitle className="font-headline text-2xl text-primary uppercase">Liên hệ qua chat trên Fanpage</CardTitle>
