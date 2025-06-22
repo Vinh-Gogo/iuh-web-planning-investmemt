@@ -2,6 +2,7 @@
 import * as React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
+import Autoplay from "embla-carousel-autoplay"
 
 import { Card, CardContent } from '@/components/ui/card';
 import {
@@ -12,7 +13,6 @@ import {
   CarouselPrevious,
 } from '@/components/ui/carousel';
 import { Badge } from '@/components/ui/badge';
-import Autoplay from "embla-carousel-autoplay"
 
 const newsItems = [
   {

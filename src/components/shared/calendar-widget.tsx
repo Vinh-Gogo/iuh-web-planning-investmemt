@@ -11,6 +11,7 @@ export default function CalendarWidget() {
   const [isClient, setIsClient] = React.useState(false);
 
   React.useEffect(() => {
+    // Set initial date only on the client
     setDate(new Date());
     setIsClient(true);
   }, []);
